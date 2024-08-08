@@ -71,7 +71,10 @@
         const lines = document.querySelectorAll('#content h3');
         let index = 0;
 
-        function showNextLine() {
+        function showNextLine(event) {
+            // 阻止點擊事件冒泡以避免多次觸發
+            event.stopPropagation();
+
             if (index < lines.length) {
                 lines[index].classList.add('show');
                 index++;
@@ -79,7 +82,7 @@
             
             if (index === lines.length) {
                 document.getElementById('dad_pic').style.display = 'inline';
-                // 移除點擊事件，以防止多次觸發
+                // 移除click事件，以防止多次觸發
                 document.body.removeEventListener('click', showNextLine);
             }
         }
