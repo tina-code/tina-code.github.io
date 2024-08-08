@@ -17,6 +17,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
+        }
+        #marquee-container {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            position: fixed;
+            top: 0;
+            padding: 10px 0;
+            text-align: center;
+        }
+        #marquee-text {
+            font-size: 1.5em;
+            color: #FF7878;
+            text-shadow: 2px 2px 2px #a4b0b8;
         }
         #content {
             display: flex;
@@ -38,7 +52,7 @@
             margin-top: 20px;
         }
         #content .last-line {
-            color: #1a82d6;
+            color: #0e6bb7;
         }
         #backButton {
             margin-top: 20px;
@@ -52,6 +66,10 @@
     </style>
 </head>
 <body onclick="showNextLine()"> <!-- 綁定點擊事件到 body -->
+    <!-- 跑馬燈區域 -->
+    <div id="marquee-container">
+        <marquee id="marquee-text">請點擊顯示下一行~</marquee>
+    </div>
     <div id="content">
         <h3>Dear 爸爸，</h3>
         <h3>從小到大您總是一肩扛下許多的壓力，</h3> 
@@ -74,6 +92,11 @@
         function showNextLine(event) {
             // 阻止點擊事件冒泡以避免多次觸發
             event.stopPropagation();
+
+            if (index === 0) {
+                // 點擊後隱藏跑馬燈
+                document.getElementById('marquee-container').style.display = 'none';
+            }
 
             if (index < lines.length) {
                 lines[index].classList.add('show');
