@@ -1,47 +1,55 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <center><marquee><h1><font color="#FF7878"font style="text-shadow:3px 3px 3px#a4b0b8;">歡迎來到Tina的網頁~</font></h1></marquee></center>
-        <meta http-equiv="Content-Type" content="text/html; ">
-    </head>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>五個嘟嘟好</title>
     <style>
-    body {
-        background-image: url("background.png");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
+        body {
+            background-image: url("background.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            font-size: 2em;
+            color: #FF7878;
+            text-shadow: 3px 3px 3px #a4b0b8;
+        }
+        select, button {
+            margin-top: 10px;
+            font-size: 1em;
+        }
     </style>
-    <body>
-        <center>
-            <div id="linkweb">
-            </div>
-            <script>setInterval("linkweb.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
-            </script>
-            <p><img src="合照.jpg" height="416"></p>
-            <select id="member">
-                <optgroup label="請選擇一位成員">
-                <option value="others">其餘9人</option>
-                <option value="dad">最特別的爸爸</option>
-                </optgroup>
-            </select>
-            <button id="button" onclick="redirectToPage()">Submit</button>
-              
-            <div id="displayArea"></div>
-              
-            <script>
-              function redirectToPage() {
-                var selectElement = document.getElementById("member");
-                var selectedValue = selectElement.value;
-              
-                if (selectedValue === "others") {
-                  window.location.href = "others.html";
-                } else if (selectedValue === "dad") {
-                  window.location.href = "thankful.html";
-                }
-              }
-            </script>
-        </center>    
-    </body>
+</head>
+<body>
+    <h1><marquee>歡迎來到Tina的網頁~</marquee></h1>
+    <div id="linkweb"></div>
+    <script>
+        setInterval(function() {
+            document.getElementById("linkweb").innerHTML = new Date().toLocaleString() + ' 星期' + '日一二三四五六'.charAt(new Date().getDay());
+        }, 1000);
+    </script>
+    <p><img src="合照.jpg" height="416" alt="合照"></p>
+    <select id="member">
+        <optgroup label="請選擇一位成員">
+            <option value="others">其餘9人</option>
+            <option value="dad">最特別的爸爸</option>
+        </optgroup>
+    </select>
+    <button id="button" onclick="redirectToPage()">Submit</button>
+    <script>
+        function redirectToPage() {
+            var selectedValue = document.getElementById("member").value;
+            if (selectedValue === "others") {
+                window.location.href = "others.html";
+            } else if (selectedValue === "dad") {
+                window.location.href = "thankful.html";
+            }
+        }
+    </script>
+</body>
 </html>
