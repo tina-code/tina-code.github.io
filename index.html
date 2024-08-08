@@ -7,7 +7,7 @@
     <title>五個嘟嘟好</title>
     <style>
     body {
-        background-image: url("background.jpg");
+        background-image: url("background.png");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -23,7 +23,7 @@
             <select id="member">
                 <optgroup label="請選擇一位成員">
                 <option value="others">其餘9人</option>
-                <option value="mom">最特別的媽媽</option>
+                <option value="dad">最特別的爸爸</option>
                 </optgroup>
             </select>
             <button id="button" onclick="redirectToPage()">Submit</button>
@@ -37,7 +37,7 @@
               
                 if (selectedValue === "others") {
                   window.location.href = "others.html";
-                } else if (selectedValue === "mom") {
+                } else if (selectedValue === "dad") {
                   window.location.href = "thankful.html";
                 }
               }
