@@ -13,20 +13,21 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            height: 100vh; /* 確保 body 覆蓋整個螢幕高度 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         #content {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            height: 100vh;
-            padding-top: 20px;
-            text-align: center; /* 將文字置中 */
+            text-align: center;
         }
         #content h3 {
             opacity: 0;
             transition: opacity 1s ease;
-            cursor: pointer; /* 指示可以點擊 */
         }
         #content .show {
             opacity: 1;
@@ -37,7 +38,7 @@
             margin-top: 20px;
         }
         #content .last-line {
-            color: #11519b;
+            color: #ff1493;
         }
         #backButton {
             margin-top: 20px;
@@ -50,7 +51,7 @@
         }
     </style>
 </head>
-<body>
+<body onclick="showNextLine()"> <!-- 綁定點擊事件到 body -->
     <div id="content">
         <h3>Dear 爸爸，</h3>
         <h3>從小到大您總是一肩扛下許多的壓力，</h3> 
@@ -62,8 +63,7 @@
         <h3>在這特別的一天，</h3> 
         <h3>祝福您 天天開心，心想事成</h3>
         <h3 class="last-line">還有最重要的是 父親節快樂! I love U!</h3>
-        <img id="dad_pic" src="5.jpg" alt="dad_pic" height="300"> 
-        <!-- 返回主頁的按鈕 -->
+        <img id="dad_pic" src="5.jpg" alt="dad_pic"> 
         <button id="backButton" onclick="goToHomePage()">返回主頁</button>
     </div>
 
@@ -78,17 +78,18 @@
             } 
             
             if (index === lines.length) {
-                document.getElementById('dad_pic').style.display = 'inline'; 
+                document.getElementById('dad_pic').style.display = 'inline';
+                // 移除點擊事件，以防止多次觸發
+                document.body.removeEventListener('click', showNextLine);
             }
         }
-
-        lines.forEach(line => {
-            line.addEventListener('click', showNextLine);
-        });
 
         function goToHomePage() {
             window.location.href = "index.html"; // 替換為你的主頁 URL
         }
+
+        // 初始綁定click事件到 body
+        document.body.addEventListener('click', showNextLine);
     </script>
 </body>
 </html>
