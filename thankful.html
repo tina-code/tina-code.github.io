@@ -17,7 +17,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
+            overflow: hidden; /* 隱藏 body 滾動條 */
+        }
+        #container {
+            max-height: 100vh; /* 限制容器的最大高度為視窗高度 */
+            overflow-y: auto; /* 允許垂直滾動 */
+            width: 90vw; /* 限制容器的寬度 */
+            box-sizing: border-box; /* 包括邊框和內邊距在寬度計算中 */
         }
         #marquee-container {
             width: 100%;
@@ -40,6 +46,7 @@
             justify-content: flex-start;
             text-align: center;
             z-index: 0; /* 確保內容在跑馬燈下面 */
+            margin-top: 6vh; /* 確保內容不會被跑馬燈覆蓋 */
         }
         #content h3 {
             opacity: 0;
@@ -56,11 +63,11 @@
             margin-top: 2vw; /* 根據螢幕寬度調整圖片的上邊距 */
         }
         #content .last-line {
-            color: #ff1493;
+            color: #216ae8;
         }
         #backButton {
             margin-top: 2vw; /* 根據螢幕寬度調整按鈕的上邊距 */
-            background-color: #FF7878;
+            background-color: #3367ed;
             color: white;
             padding: 1vw 2vw; /* 根據螢幕寬度調整按鈕的內邊距 */
             border: none;
@@ -70,24 +77,26 @@
         }
     </style>
 </head>
-<body onclick="showNextLine()"> <!-- 綁定點擊事件到 body -->
+<body>
     <!-- 跑馬燈區域 -->
     <div id="marquee-container">
         <marquee id="marquee-text">請點擊顯示下一行~</marquee>
     </div>
-    <div id="content">
-        <h3>Dear 爸爸，</h3>
-        <h3>從小到大您總是一肩扛下許多的壓力，</h3> 
-        <h3>遇到跟我們有關的事情比誰都還盡心盡力，</h3> 
-        <h3>讓我們總是感到非常的放心~</h3> 
-        <h3>除此之外，還開車帶我們跑遍台灣各地</h3>
-        <h3>以及不同的夾娃娃機店XDD</h3>
-        <h3>一直以來辛苦了!謝謝您為我們所有的付出!</h3>
-        <h3>在這特別的一天，</h3> 
-        <h3>祝福您 天天開心，心想事成</h3>
-        <h3 class="last-line">還有最重要的是 父親節快樂! I love U!</h3>
-        <img id="dad_pic" src="5.jpg" alt="dad_pic"> 
-        <button id="backButton" onclick="goToHomePage()">返回主頁</button>
+    <div id="container">
+        <div id="content">
+            <h3>Dear 爸爸，</h3>
+            <h3>從小到大您總是一肩扛下許多的壓力，</h3> 
+            <h3>遇到跟我們有關的事情比誰都還盡心盡力，</h3> 
+            <h3>讓我們總是感到非常的放心~</h3> 
+            <h3>除此之外，還開車帶我們跑遍台灣各地</h3>
+            <h3>以及不同的夾娃娃機店XDD</h3>
+            <h3>一直以來辛苦了!謝謝您為我們所有的付出!</h3>
+            <h3>在這特別的一天，</h3> 
+            <h3>祝福您 天天開心，心想事成</h3>
+            <h3 class="last-line">還有最重要的是 父親節快樂! I love U!</h3>
+            <img id="dad_pic" src="5.jpg" alt="dad_pic"> 
+            <button id="backButton" onclick="goToHomePage()">返回主頁</button>
+        </div>
     </div>
 
     <script>
