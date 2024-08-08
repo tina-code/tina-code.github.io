@@ -57,6 +57,7 @@
         <h3>在這特別的一天，</h3> 
         <h3>祝福您 天天開心，心想事成</h3>
         <h3 class="last-line">還有最重要的是 父親節快樂! I love U!</h3>
+        <img id="dad_pic" src="5.jpg" alt="dad_pic" height="300"> 
         <!-- 返回主頁的按鈕 -->
         <button id="backButton" onclick="goToHomePage()">返回主頁</button>
     </div>
@@ -70,6 +71,9 @@
                 lines[index].classList.add('show');
                 index++;
                 setTimeout(showLines, 2200); // 每 1000 毫秒（即每秒）顯示一行
+            }
+            else {
+                document.getElementById('dad_pic').style.display = 'inline'; 
             }
         }
 
