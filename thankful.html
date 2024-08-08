@@ -26,9 +26,10 @@
             top: 0;
             padding: 10px 0;
             text-align: center;
+            z-index: 1; /* 確保跑馬燈在最上層 */
         }
         #marquee-text {
-            font-size: 1.5em;
+            font-size: 4vw; /* 根據螢幕寬度調整字體大小 */
             color: #FF7878;
             text-shadow: 2px 2px 2px #a4b0b8;
         }
@@ -38,30 +39,33 @@
             align-items: center;
             justify-content: flex-start;
             text-align: center;
+            z-index: 0; /* 確保內容在跑馬燈下面 */
         }
         #content h3 {
             opacity: 0;
             transition: opacity 1s ease;
+            font-size: 3vw; /* 根據螢幕寬度調整字體大小 */
         }
         #content .show {
             opacity: 1;
         }
         #dad_pic {
             display: none;
-            height: 300px;
+            height: 20vw; /* 根據螢幕寬度調整圖片高度 */
             margin-top: 20px;
         }
         #content .last-line {
-            color: #0e6bb7;
+            color: #1268ca;
         }
         #backButton {
-            margin-top: 20px;
+            margin-top: 2vw; /* 根據螢幕寬度調整按鈕的上邊距 */
             background-color: #0e73e6;
             color: white;
-            padding: 10px 20px;
+            padding: 1vw 2vw; /* 根據螢幕寬度調整按鈕的內邊距 */
             border: none;
-            border-radius: 5px;
+            border-radius: 0.5vw; /* 根據螢幕寬度調整按鈕的邊框圓角 */
             cursor: pointer;
+            font-size: 2vw; /* 根據螢幕寬度調整按鈕的文字大小 */
         }
     </style>
 </head>
@@ -119,3 +123,5 @@
     </script>
 </body>
 </html>
+
+
