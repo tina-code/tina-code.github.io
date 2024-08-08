@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <center><marquee><h1 style="color: #FF7878; text-shadow: 3px 3px 3px #a4b0b8;">Dear 媽咪，祝妳母親節快樂~</h1></marquee></center>
+    <meta http-equiv="Content-Type" content="text/html; ">
+    <title>親愛的爸爸</title>
+    <style>
+        body {
+            background-image: url("background1.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0; /* 清除預設的外邊距 */
+            padding: 0; /* 清除預設的內邊距 */
+            font-family: Arial, sans-serif; /* 設置字體 */
+        }
+        #content {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* 水平方向上置中 */
+            justify-content: flex-start; /* 垂直方向上保持在頂部 */
+            height: 100vh; /* 將高度設置為視窗的高度 */
+            padding-top: 20px; /* 增加頂部內邊距 */
+        }
+        #content h3 {
+            opacity: 0;
+            transition: opacity 1s ease;
+            text-align: center; /* 將文字置中 */
+        }
+        #content .show {
+            opacity: 1;
+        }
+        #content .last-line {
+            color: #ff1493; /* 使用更深的粉紅色 */
+        }
+        #backButton {
+            margin-top: 20px; /* 調整返回按鈕的上邊距 */
+            background-color: #FF7878;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h3>Dear 爸爸，</h3>
+        <h3>從小到大您總是一肩扛下許多的壓力，</h3> 
+        <h3>遇到跟我們有關的事情比誰都還盡心盡力，</h3> 
+        <h3>讓我們總是感到非常的放心~</h3> 
+        <h3>除此之外，還開車帶我們跑遍台灣各地</h3>
+        <h3>以及不同的夾娃娃機店XDD</h3>
+        <h3>一直以來辛苦了!謝謝您為我們所有的付出!</h3>
+        <h3>在這特別的一天，</h3> 
+        <h3>祝福您 天天開心，心想事成</h3>
+        <h3 class="last-line">還有最重要的是 父親節快樂! I love U!</h3>
+        <!-- 返回主頁的按鈕 -->
+        <button id="backButton" onclick="goToHomePage()">返回主頁</button>
+    </div>
+
+    <script>
+        const lines = document.querySelectorAll('#content h3');
+        let index = 0;
+
+        function showLines() {
+            if (index < lines.length) {
+                lines[index].classList.add('show');
+                index++;
+                setTimeout(showLines, 2200); // 每 1000 毫秒（即每秒）顯示一行
+            }
+        }
+
+        showLines();
+
+        function goToHomePage() {
+            window.location.href = "index.html"; // 這裡替換成你的主頁面的 URL
+        }
+    </script>
+</body>
+</html>
