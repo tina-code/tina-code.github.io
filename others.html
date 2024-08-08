@@ -8,18 +8,16 @@
         body {
             margin: 0;
             padding: 0;
-            overflow: hidden; /* 隱藏 body 的滾動條 */
             font-family: Arial, sans-serif;
         }
         #container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow-y: auto; /* 允許垂直滾動 */
             padding: 0 10px; /* 左右邊距 */
             box-sizing: border-box; /* 包括邊框和內邊距在寬度計算中 */
+            min-height: 100vh; /* 確保容器至少與視窗高度相同 */
+            overflow-y: auto; /* 允許垂直滾動 */
         }
         .image {
             width: calc(100vw - 20px); /* 圖片寬度留出左右邊距 */
@@ -32,7 +30,7 @@
             bottom: 20px; /* 距離視窗底部的距離 */
             left: 50%;
             transform: translateX(-50%); /* 讓按鈕水平置中 */
-            background-color: #3367ed;
+            background-color: #FF7878;
             color: white;
             padding: 10px 20px;
             border: none;
