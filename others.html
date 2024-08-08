@@ -18,13 +18,28 @@
             justify-content: center;
             height: 100vh;
             overflow-y: auto; /* 允許垂直滾動 */
-            padding: 0;
+            padding: 0 10px; /* 左右邊距 */
+            box-sizing: border-box; /* 包括邊框和內邊距在寬度計算中 */
         }
         .image {
-            width: 100vw; /* 圖片寬度填滿視窗寬度 */
-            height: 100vh; /* 圖片高度填滿視窗高度 */
+            width: calc(100vw - 20px); /* 圖片寬度留出左右邊距 */
+            height: auto; /* 高度自動調整以保持比例 */
             object-fit: cover; /* 讓圖片保持比例並填滿容器 */
-            margin-bottom: 10px; /* 圖片間的間距 */
+            margin-bottom: 20px; /* 圖片間的間距 */
+        }
+        #backButton {
+            position: fixed;
+            bottom: 20px; /* 距離視窗底部的距離 */
+            left: 50%;
+            transform: translateX(-50%); /* 讓按鈕水平置中 */
+            background-color: #3367ed;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em; /* 根據螢幕大小調整按鈕文字大小 */
+            z-index: 1; /* 確保按鈕在最上層 */
         }
     </style>
 </head>
@@ -47,5 +62,13 @@
         <img class="image" src="18.jpg" alt="圖片17">
         <img class="image" src="19.jpg" alt="圖片18">
     </div>
+    <!-- 返回主頁的按鈕 -->
+    <button id="backButton" onclick="goToHomePage()">返回主頁</button>
+
+    <script>
+        function goToHomePage() {
+            window.location.href = "index.html"; // 替換為你的主頁 URL
+        }
+    </script>
 </body>
 </html>
